@@ -1,8 +1,8 @@
 /* =====================================================================
-   SHOP CONTENT — edit ONLY this object to reuse the site for another shop.
-   Everything visible on the page (both languages) comes from here.
-   hours: index 0 = Sunday … 6 = Saturday, ["HH:MM", "HH:MM"] in Dubai time, or null if closed.
-   hoursGroups: how days are grouped in the hours table. See README.md.
+   SHOP CONTENT: edit ONLY this object to change what the page says (both languages).
+   hours: index 0 = Sunday … 6 = Saturday, ["HH:MM", "HH:MM"] Dubai time, a list of ranges for split
+   hours, or null if closed. A closing time after midnight is written past 24:00 ("24:30" = 12:30 AM).
+   reviews: real Google quotes. If empty, text.<lang>.mentions (a summary) is shown instead.
    ===================================================================== */
 const SHOP = {
   "name": "Traditional Gulf Men Tailoring LLC",
@@ -61,13 +61,13 @@ const SHOP = {
         3,
         4
       ],
-      "key": "week"
+      "key": "g0"
     },
     {
       "days": [
         5
       ],
-      "key": "fri"
+      "key": "g1"
     }
   ],
   "rating": {
@@ -76,76 +76,74 @@ const SHOP = {
   },
   "showDemoBanner": true,
   "credit": "Tanish",
-  "images": {
+  "photos": {
     "hero": {
-      "src": "images/kandura-arch.svg",
-      "en": "Line drawing of a white kandura on a hanger in a pointed-arch window with a mashrabiya pattern",
-      "ar": "رسم خطي لكندورة بيضاء على علّاقة داخل نافذة مقوّسة بنقش المشربية"
+      "src": "images/hero.webp",
+      "en": "Cutting dark fabric with tailor’s scissors",
+      "ar": "قص قماش داكن بمقص الخياط"
+    },
+    "intro": {
+      "src": "images/photo-1.webp",
+      "en": "A classic sewing machine at work",
+      "ar": "ماكينة خياطة كلاسيكية أثناء العمل"
+    },
+    "photo-2": {
+      "src": "images/photo-2.webp",
+      "en": "A sewing machine foot on dark fabric",
+      "ar": "قدم ماكينة الخياطة على قماش داكن"
+    },
+    "photo-3": {
+      "src": "images/photo-3.webp",
+      "en": "Stitching a seam on blue fabric",
+      "ar": "خياطة درزة على قماش أزرق"
     }
   },
-  "stepIcons": [
-    "i-wa",
-    "i-store",
-    "i-kandura"
-  ],
   "services": [
     {
-      "image": "images/kandura.svg",
       "en": {
         "name": "Kandura tailoring",
         "desc": "Kanduras stitched for you, from your first one onwards.",
-        "alt": "Line drawing of a kandura on a hanger with its tassel",
         "ask": "kandura tailoring"
       },
       "ar": {
         "name": "تفصيل الكندورة",
         "desc": "كندورة تُخاط لك، من أول كندورة وما بعدها.",
-        "alt": "رسم خطي لكندورة على علّاقة مع الطربوشة",
         "ask": "تفصيل الكندورة"
       }
     },
     {
-      "image": "images/arabic-dress.svg",
       "en": {
         "name": "Arabic men's dress",
         "desc": "Tailoring for every kind of Arabic dress for men.",
-        "alt": "Line drawing of folded garments with an embroidered collar and tassel",
         "ask": "Arabic men's dress tailoring"
       },
       "ar": {
         "name": "الملابس العربية الرجالية",
         "desc": "تفصيل كل أنواع الملابس العربية للرجال.",
-        "alt": "رسم خطي لملابس مطوية بياقة مطرزة وطربوشة",
         "ask": "تفصيل الملابس العربية الرجالية"
       }
     },
     {
-      "image": "images/fabrics.svg",
       "en": {
         "name": "Fabrics & details",
         "desc": "A wide choice of fabrics and details to pick from.",
-        "alt": "Line drawing of rolls of fabric standing side by side",
         "ask": "fabrics and details"
       },
       "ar": {
         "name": "الأقمشة والتفاصيل",
         "desc": "خيارات واسعة من الأقمشة والتفاصيل لتختار منها.",
-        "alt": "رسم خطي لأثواب قماش ملفوفة بجانب بعضها",
         "ask": "الأقمشة والتفاصيل"
       }
     },
     {
-      "image": "images/advice.svg",
       "en": {
         "name": "Style advice",
         "desc": "Not sure what to choose? We'll give you advice on styles.",
-        "alt": "Line drawing of an open sketchbook with a kandura sketch, a pencil and a tape measure",
         "ask": "advice on styles"
       },
       "ar": {
         "name": "نصائح التصميم",
         "desc": "لست متأكدًا مما تختار؟ نقدم لك النصيحة في التصاميم.",
-        "alt": "رسم خطي لدفتر رسم مفتوح فيه رسم كندورة وقلم وشريط قياس",
         "ask": "النصيحة في التصاميم"
       }
     }
@@ -160,22 +158,23 @@ const SHOP = {
       "skip": "Skip to content",
       "navLabel": "Main",
       "navServices": "Services",
-      "navHow": "How it works",
       "navReviews": "Reviews",
       "navVisit": "Visit",
       "langLabel": "Language",
       "waCta": "Message on WhatsApp",
       "waShort": "WhatsApp",
       "callCta": "Call the shop",
-      "directions": "Get Directions",
+      "directions": "Get directions",
       "newTab": "(opens in a new tab)",
-      "ratingLine": "{rating} on Google · {count} reviews",
+      "ratingShort": "Google rating",
+      "ratingCount": "{count} reviews",
+      "outOf": "out of 5 on Google",
       "statusOpen": "Open now · until {time}",
       "statusOpensToday": "Closed now · opens today at {time}",
       "statusReopens": "Closed now · reopens today at {time}",
-      "closed": "Closed",
       "statusOpensTomorrow": "Closed now · opens tomorrow at {time}",
       "statusOpensLater": "Closed now · opens {day} at {time}",
+      "closed": "Closed",
       "am": "AM",
       "pm": "PM",
       "days": [
@@ -188,85 +187,51 @@ const SHOP = {
         "Saturday"
       ],
       "today": "Today",
-      "stripAria": "Quick facts",
-      "stripServicesLabel": "Services",
-      "stripHoursLabel": "Hours",
-      "stripRatingLabel": "Google rating",
-      "stripRating": "{rating} / 5 · {count} reviews",
-      "servicesKicker": "Services",
+      "introLabel": "About",
+      "servicesTitle": "Services",
       "quoteCta": "Ask on WhatsApp",
       "quoteNote": "Prices aren't listed online. Message us on WhatsApp for prices.",
-      "howKicker": "How it works",
-      "reviewsKicker": "Reviews",
-      "basedOn": "{count} reviews on Google",
+      "reviewsTitle": "What customers say",
       "reviewLabel": "Google review",
-      "readMore": "Read more on Google",
-      "visitKicker": "Visit",
+      "mentionsNote": "What customers mention most in their Google reviews.",
+      "readMore": "Read the reviews on Google",
+      "visitTitle": "Visit",
       "addressLabel": "Address",
       "hoursLabel": "Opening hours",
       "phoneLabel": "Phone & WhatsApp",
+      "closingTitle": "Ask about your kandura on WhatsApp",
       "footerContact": "Contact",
       "credit": "Website by {credit}",
-      "pageTitle": "Traditional Gulf Men Tailoring · Kandura tailoring in Al Karama, Dubai",
-      "metaDescription": "Kandura and Arabic men's dress tailoring on Sheikh Rashid Road, Al Karama, Dubai, with a wide choice of fabrics and details and advice on styles. Rated 4.7 on Google.",
+      "pageTitle": "Traditional Gulf Men Tailoring LLC · Kandura tailoring · Al Karama",
+      "metaDescription": "Kandura and Arabic men's dress tailoring in Al Karama, with a wide choice of fabrics and details, and advice on styles. Rated 4.7 on Google.",
       "demoBanner": "Demo preview – made for Traditional Gulf Men Tailoring LLC. Not the official website yet.",
-      "brandName": "Traditional Gulf",
-      "brandSub": "Men Tailoring · Al Karama",
-      "waMessage": "Hello Traditional Gulf Men Tailoring, I found you on your website and I'd like to ask about tailoring.",
-      "waMessageAbout": "Hello Traditional Gulf Men Tailoring, I found you on your website and I'd like to ask about {service}.",
-      "waAria": "Message Traditional Gulf Men Tailoring on WhatsApp",
-      "heroEyebrow": "Kandura & Arabic dress tailoring",
-      "heroTitle": [
-        "Your kandura,",
-        "tailored to you."
-      ],
-      "heroSub": "Kandura and Arabic men's dress tailoring in Al Karama, with a wide choice of fabrics and details, and advice on styles.",
-      "heroPlace": "Land Office Building 2, Sheikh Rashid Road, Al Karama",
-      "heroCaption": "الخليج التقليدي للخياطة الرجالية",
-      "stripServices": "Kandura tailoring · Arabic men's dress · Fabrics & details · Style advice",
+      "heroName": "Traditional Gulf Men Tailoring",
+      "waMessage": "Hello Traditional Gulf, I found you on your website and I'd like to ask about your services.",
+      "waMessageAbout": "Hello Traditional Gulf, I found you on your website and I'd like to ask about {service}.",
+      "waAria": "Message Traditional Gulf Men Tailoring LLC on WhatsApp",
+      "mapTitle": "Map showing Traditional Gulf Men Tailoring LLC",
+      "footerName": "Traditional Gulf Men Tailoring LLC",
       "groups": {
-        "week": "Saturday – Thursday",
-        "fri": "Friday"
+        "g0": "Saturday – Thursday",
+        "g1": "Friday"
       },
-      "groupsShort": {
-        "week": "Sat–Thu",
-        "fri": "Fri"
-      },
-      "servicesTitle": "Tailored the Gulf way.",
-      "servicesIntro": "Tap any one to ask us about it on WhatsApp.",
-      "howTitle": "From fabric to kandura.",
-      "steps": [
-        {
-          "title": "Message us on WhatsApp",
-          "text": "Ask about fabrics, styles or prices."
-        },
-        {
-          "title": "Visit the shop",
-          "text": "Choose your fabric and details, and get advice on the style."
-        },
-        {
-          "title": "Wear it",
-          "text": "Collect your kandura, tailored for you."
-        }
-      ],
-      "reviewsTitle": "What customers say.",
-      "visitTitle": "Visit the shop.",
+      "mentions": [],
+      "brandName": "Traditional Gulf",
+      "heroPlace": "Land Office Building 2, Sheikh Rashid Road, Al Karama",
       "addressLines": [
         "Shop 2, Land Office Building 2",
         "Sheikh Rashid Road, Al Karama",
         "Dubai"
       ],
-      "mapTitle": "Map showing Traditional Gulf Men Tailoring on Sheikh Rashid Road, Al Karama, Dubai",
-      "ctaTitle": "Ready for a new kandura?",
-      "ctaSub": "Send us a message on WhatsApp, or call the shop.",
-      "footerName": "Traditional Gulf Men Tailoring LLC",
-      "footerTag": "Kandura and Arabic men's dress tailoring in Al Karama, Dubai."
+      "servicesIntro": "Tap any one to ask us about it on WhatsApp.",
+      "footerTag": "Kandura and Arabic men's dress tailoring in Al Karama, Dubai.",
+      "intro": "Kandura and Arabic men's dress tailoring in Al Karama, with a wide choice of fabrics and details, and advice on styles.",
+      "kicker": "Kandura tailoring · Al Karama"
     },
     "ar": {
       "skip": "انتقل إلى المحتوى",
       "navLabel": "القائمة الرئيسية",
       "navServices": "الخدمات",
-      "navHow": "كيف نعمل",
       "navReviews": "التقييمات",
       "navVisit": "الموقع",
       "langLabel": "اللغة",
@@ -275,14 +240,16 @@ const SHOP = {
       "callCta": "اتصل بالمحل",
       "directions": "احصل على الاتجاهات",
       "newTab": "(يفتح في نافذة جديدة)",
-      "ratingLine": "{rating} على جوجل · {count} تقييمًا",
+      "ratingShort": "تقييم جوجل",
+      "ratingCount": "{count} تقييمًا",
+      "outOf": "من 5 على جوجل",
       "statusOpen": "مفتوح الآن · حتى {time}",
       "statusOpensToday": "مغلق الآن · يفتح اليوم الساعة {time}",
       "statusReopens": "مغلق الآن · يعيد الفتح اليوم الساعة {time}",
-      "closed": "مغلق",
-      "midnight": "منتصف الليل",
       "statusOpensTomorrow": "مغلق الآن · يفتح غدًا الساعة {time}",
       "statusOpensLater": "مغلق الآن · يفتح يوم {day} الساعة {time}",
+      "closed": "مغلق",
+      "midnight": "منتصف الليل",
       "am": "صباحًا",
       "pm": "مساءً",
       "days": [
@@ -295,79 +262,46 @@ const SHOP = {
         "السبت"
       ],
       "today": "اليوم",
-      "stripAria": "معلومات سريعة",
-      "stripServicesLabel": "الخدمات",
-      "stripHoursLabel": "ساعات العمل",
-      "stripRatingLabel": "التقييم على جوجل",
-      "stripRating": "{rating} من 5 · {count} تقييمًا",
-      "servicesKicker": "الخدمات",
+      "introLabel": "نبذة",
+      "servicesTitle": "الخدمات",
       "quoteCta": "اسأل عبر واتساب",
-      "quoteNote": "الأسعار غير معروضة على الموقع. راسلونا عبر واتساب لمعرفة الأسعار.",
-      "howKicker": "كيف نعمل",
-      "reviewsKicker": "التقييمات",
-      "basedOn": "{count} تقييمًا على جوجل",
+      "quoteNote": "الأسعار غير معروضة على الموقع. راسلنا عبر واتساب لمعرفة الأسعار.",
+      "reviewsTitle": "ماذا يقول العملاء",
       "reviewLabel": "تقييم من جوجل",
-      "readMore": "اقرأ المزيد على جوجل",
-      "visitKicker": "زورونا",
+      "mentionsNote": "أكثر ما يذكره العملاء في تقييماتهم على جوجل.",
+      "readMore": "اقرأ التقييمات على جوجل",
+      "visitTitle": "زورونا",
       "addressLabel": "العنوان",
       "hoursLabel": "ساعات العمل",
       "phoneLabel": "الهاتف وواتساب",
+      "closingTitle": "اسألنا عن الكندورة عبر واتساب",
       "footerContact": "تواصل معنا",
       "credit": "تصميم الموقع: {credit}",
-      "pageTitle": "الخليج التقليدي للخياطة الرجالية · تفصيل الكنادير في الكرامة، دبي",
-      "metaDescription": "تفصيل الكنادير والملابس العربية الرجالية على شارع الشيخ راشد، الكرامة، دبي، مع خيارات واسعة من الأقمشة والتفاصيل ونصائح في التصاميم. تقييم 4.7 على جوجل.",
-      "demoBanner": "نسخة تجريبية – صُممت خصيصًا لمحل الخليج التقليدي للخياطة الرجالية. ليست الموقع الرسمي بعد.",
-      "brandName": "الخليج التقليدي",
-      "brandSub": "للخياطة الرجالية · الكرامة",
-      "waMessage": "مرحبًا الخليج التقليدي للخياطة، وجدتكم عبر موقعكم الإلكتروني وأودّ الاستفسار عن التفصيل.",
-      "waMessageAbout": "مرحبًا الخليج التقليدي للخياطة، وجدتكم عبر موقعكم الإلكتروني وأودّ الاستفسار عن {service}.",
+      "pageTitle": "الخليج التقليدي للخياطة الرجالية · خياطة الكندورة · الكرامة",
+      "metaDescription": "تفصيل الكنادير والملابس العربية الرجالية في الكرامة، مع خيارات واسعة من الأقمشة والتفاصيل، ونصائح في التصاميم. تقييم 4.7 على جوجل.",
+      "demoBanner": "نسخة تجريبية – صُممت خصيصًا لـالخليج التقليدي للخياطة الرجالية. ليست الموقع الرسمي بعد.",
+      "heroName": "الخليج التقليدي للخياطة الرجالية",
+      "waMessage": "مرحبًا الخليج التقليدي، وجدتكم عبر موقعكم الإلكتروني وأودّ الاستفسار عن خدماتكم.",
+      "waMessageAbout": "مرحبًا الخليج التقليدي، وجدتكم عبر موقعكم الإلكتروني وأودّ الاستفسار عن {service}.",
       "waAria": "راسل الخليج التقليدي للخياطة الرجالية عبر واتساب",
-      "heroEyebrow": "تفصيل الكندورة والملابس العربية",
-      "heroTitle": [
-        "كندورتك،",
-        "مفصّلة لك."
-      ],
-      "heroSub": "تفصيل الكنادير والملابس العربية الرجالية في الكرامة، مع خيارات واسعة من الأقمشة والتفاصيل، ونصائح في التصاميم.",
-      "heroPlace": "مبنى لاند أوفس 2، شارع الشيخ راشد، الكرامة",
-      "heroCaption": "Traditional Gulf Men Tailoring",
-      "stripServices": "تفصيل الكندورة · الملابس العربية الرجالية · الأقمشة والتفاصيل · نصائح التصميم",
+      "mapTitle": "خريطة توضح موقع الخليج التقليدي للخياطة الرجالية",
+      "footerName": "الخليج التقليدي للخياطة الرجالية",
       "groups": {
-        "week": "السبت – الخميس",
-        "fri": "الجمعة"
+        "g0": "السبت – الخميس",
+        "g1": "الجمعة"
       },
-      "groupsShort": {
-        "week": "السبت–الخميس",
-        "fri": "الجمعة"
-      },
-      "servicesTitle": "خياطة على الطريقة الخليجية.",
-      "servicesIntro": "اضغط على أي منها لتسألنا عنه عبر واتساب.",
-      "howTitle": "من القماش إلى الكندورة.",
-      "steps": [
-        {
-          "title": "راسلنا عبر واتساب",
-          "text": "اسأل عن الأقمشة أو التصاميم أو الأسعار."
-        },
-        {
-          "title": "زُر المحل",
-          "text": "اختر القماش والتفاصيل، واحصل على النصيحة في التصميم."
-        },
-        {
-          "title": "البسها",
-          "text": "استلم كندورتك المفصّلة لك."
-        }
-      ],
-      "reviewsTitle": "ماذا يقول العملاء.",
-      "visitTitle": "زُر المحل.",
+      "mentions": [],
+      "brandName": "الخليج التقليدي",
+      "heroPlace": "مبنى لاند أوفس 2، شارع الشيخ راشد، الكرامة",
       "addressLines": [
         "محل 2، مبنى لاند أوفس 2",
         "شارع الشيخ راشد، الكرامة",
         "دبي"
       ],
-      "mapTitle": "خريطة توضح موقع الخليج التقليدي للخياطة الرجالية على شارع الشيخ راشد، الكرامة، دبي",
-      "ctaTitle": "مستعد لكندورة جديدة؟",
-      "ctaSub": "أرسل لنا رسالة عبر واتساب، أو اتصل بالمحل.",
-      "footerName": "الخليج التقليدي للخياطة الرجالية ذ.م.م",
-      "footerTag": "تفصيل الكنادير والملابس العربية الرجالية في الكرامة، دبي."
+      "servicesIntro": "اضغط على أي منها لتسألنا عنه عبر واتساب.",
+      "footerTag": "تفصيل الكنادير والملابس العربية الرجالية في الكرامة، دبي.",
+      "intro": "تفصيل الكنادير والملابس العربية الرجالية في الكرامة، مع خيارات واسعة من الأقمشة والتفاصيل، ونصائح في التصاميم.",
+      "kicker": "خياطة الكندورة · الكرامة"
     }
   }
 };
@@ -382,11 +316,10 @@ const SHOP = {
   const root = document.documentElement;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let lang = "en";
-
   try {
     const saved = localStorage.getItem(LANG_KEY);
     if (saved === "en" || saved === "ar") lang = saved;
-  } catch (e) { /* storage unavailable — default to English */ }
+  } catch (e) { /* storage unavailable: English */ }
 
   const $ = (sel, ctx = document) => ctx.querySelector(sel);
   const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
@@ -404,49 +337,28 @@ const SHOP = {
 
   function el(tag, attrs, children) {
     const node = document.createElement(tag);
-    if (attrs) {
-      for (const [k, v] of Object.entries(attrs)) {
-        if (v === null || v === undefined || v === false) continue;
-        if (k === "class") node.className = v;
-        else if (k === "text") node.textContent = v;
-        else node.setAttribute(k, v === true ? "" : v);
-      }
+    if (attrs) for (const [k, v] of Object.entries(attrs)) {
+      if (v === null || v === undefined || v === false) continue;
+      if (k === "class") node.className = v;
+      else if (k === "text") node.textContent = v;
+      else node.setAttribute(k, v === true ? "" : v);
     }
     (children || []).forEach((c) => node.append(c));
     return node;
   }
-
-  function useIcon(id, size) {
-    const s = size || 20;
-    const span = el("span", { class: "icon", "aria-hidden": "true" });
-    span.innerHTML = '<svg viewBox="0 0 24 24" width="' + s + '" height="' + s + '"><use href="#' + id + '"/></svg>';
-    return span;
-  }
-
-  function stars(value) {
-    const wrap = el("span", { class: "stars", "aria-hidden": "true" });
-    const full = Math.round(parseFloat(value));
-    for (let i = 0; i < 5; i++) {
-      wrap.insertAdjacentHTML("beforeend",
-        '<svg viewBox="0 0 20 20" width="16" height="16"><path d="M10 1.8l2.5 5.3 5.8.7-4.3 4 1.1 5.7L10 14.7l-5.1 2.8L6 11.8 1.7 7.8l5.8-.7Z" ' +
-        (i < full ? 'fill="currentColor"' : 'fill="none" stroke="currentColor" stroke-width="1.3"') + "/></svg>");
-    }
-    return wrap;
-  }
-
   const ltr = (text) => el("span", { dir: "ltr", class: "ltr num", text });
+  const ltrIfEn = (text) => (lang === "ar" ? document.createTextNode(text) : ltr(text));
 
-  /* ---------- WhatsApp links ---------- */
   function waUrl(service) {
     const tx = t();
     const msg = service ? fmt(tx.waMessageAbout, { service }) : tx.waMessage;
     return "https://wa.me/" + SHOP.whatsappNumber + "?text=" + encodeURIComponent(msg);
   }
 
-  /* ---------- Hours + open / closed badge (shop time zone) ---------- */
+  /* ---------- hours + open / closed badge, in the shop's time zone ---------- */
   const toMin = (hhmm) => { const [h, m] = hhmm.split(":").map(Number); return h * 60 + m; };
-  // A day is null (closed), one range ["HH:MM","HH:MM"], or several ranges [["09:30","14:00"],["17:00","22:30"]].
-  // "24:00" = closes at midnight.
+  // A day is null (closed), one range ["HH:MM","HH:MM"], or several [["09:30","14:00"],["17:00","22:30"]].
+  // A closing time after midnight is written past 24:00, e.g. "24:30" = 12:30 AM the next day.
   const rangesOf = (day) => { const h = SHOP.hours[day]; if (!h) return []; return typeof h[0] === "string" ? [h] : h; };
 
   function timeLabel(hhmm) {
@@ -469,22 +381,24 @@ const SHOP = {
 
   function shopStatus() {
     const now = nowInShopTZ();
+    // still open from yesterday's late shift (closing time past 24:00)?
+    const yday = (now.day + 6) % 7;
+    const late = rangesOf(yday).find((r) => toMin(r[1]) > 1440 && now.min < toMin(r[1]) - 1440);
+    if (late) return { open: true, key: "statusOpen", time: late[1] };
     const today = rangesOf(now.day);
     const cur = today.find((r) => now.min >= toMin(r[0]) && now.min < toMin(r[1]));
-    if (cur) return { open: true, key: "statusOpen", time: cur[1], day: now.day };
+    if (cur) return { open: true, key: "statusOpen", time: cur[1] };
     const next = today.find((r) => now.min < toMin(r[0]));
     if (next) {
       const onBreak = today.some((r) => now.min >= toMin(r[1]));
-      return { open: false, key: onBreak ? "statusReopens" : "statusOpensToday", time: next[0], day: now.day };
+      return { open: false, key: onBreak ? "statusReopens" : "statusOpensToday", time: next[0] };
     }
     for (let i = 1; i <= 7; i++) {
       const d = (now.day + i) % 7;
       const r = rangesOf(d);
-      if (r.length) {
-        return { open: false, key: i === 1 ? "statusOpensTomorrow" : "statusOpensLater", time: r[0][0], day: d };
-      }
+      if (r.length) return { open: false, key: i === 1 ? "statusOpensTomorrow" : "statusOpensLater", time: r[0][0], day: d };
     }
-    return { open: false, key: "statusOpensToday", time: "00:00", day: now.day };
+    return { open: false, key: "statusOpensToday", time: "00:00" };
   }
 
   function rangeLabels(day) {
@@ -495,7 +409,7 @@ const SHOP = {
   function renderStatus() {
     const tx = t();
     const s = shopStatus();
-    const text = fmt(tx[s.key], { time: timeLabel(s.time), day: tx.days[s.day] });
+    const text = fmt(tx[s.key], { time: timeLabel(s.time), day: s.day !== undefined ? tx.days[s.day] : "" });
     $$(".js-status").forEach((node) => {
       node.dataset.state = s.open ? "open" : "closed";
       $(".status-text", node).textContent = text;
@@ -509,23 +423,15 @@ const SHOP = {
     });
   }
 
-  const ltrIfEn = (text) => (lang === "ar" ? document.createTextNode(text) : ltr(text));
-
   function renderHours() {
     const tx = t();
     $(".js-hours").replaceChildren(el("tbody", null, SHOP.hoursGroups.map((g) => el("tr", { "data-days": g.days.join(",") }, [
-      el("th", { scope: "row" }, [
-        document.createTextNode(tx.groups[g.key] + " "),
-        el("span", { class: "today-flag", text: tx.today, hidden: true }),
-      ]),
+      el("th", { scope: "row" }, [document.createTextNode(tx.groups[g.key] + " "), el("span", { class: "today-flag", text: tx.today, hidden: true })]),
       el("td", null, rangeLabels(g.days[0]).map((l) => el("span", { class: "range" }, [ltrIfEn(l)]))),
     ]))));
-    $(".js-strip-hours").replaceChildren(...SHOP.hoursGroups.map((g) =>
-      el("span", { class: "strip-line" }, [document.createTextNode(tx.groupsShort[g.key] + " "),
-        ...rangeLabels(g.days[0]).flatMap((l, i) => (i ? [document.createTextNode(", "), ltrIfEn(l)] : [ltrIfEn(l)]))])));
   }
 
-  /* ---------- Render ---------- */
+  /* ---------- render everything for the current language ---------- */
   function renderText() {
     const tx = t();
     $$("[data-t]").forEach((node) => { if (tx[node.dataset.t] !== undefined) node.textContent = fmt(tx[node.dataset.t]); });
@@ -542,63 +448,41 @@ const SHOP = {
     document.title = tx.pageTitle;
     const md = $('meta[name="description"]');
     if (md) md.setAttribute("content", tx.metaDescription);
-
     const banner = $(".demo-banner");
     if (banner) banner.hidden = !SHOP.showDemoBanner;
 
-    // Hero headline: one line per entry, last line in the accent style.
-    const h1 = $(".js-hero-title");
-    h1.replaceChildren(...tx.heroTitle.map((line, i) =>
-      el("span", { class: "line" + (i === tx.heroTitle.length - 1 ? " accent" : ""), style: "--i:" + i, text: line + " " })));
+    // photo alt text follows the language
+    $$(".js-img").forEach((img) => { const p = SHOP.photos[img.dataset.img]; if (p) img.alt = p[lang]; });
 
-    // Rating
-    $$(".js-rating").forEach((a) => {
-      a.replaceChildren(stars(SHOP.rating.value), el("span", { text: fmt(tx.ratingLine) }), el("span", { class: "visually-hidden js-newtab", text: " " + tx.newTab }));
-    });
-    $$(".js-stars").forEach((n) => n.replaceChildren(stars(SHOP.rating.value)));
-    $$(".js-score").forEach((n) => { n.textContent = SHOP.rating.value; });
+    // optional story paragraphs + facts (intro section)
+    $(".js-story").replaceChildren(...(tx.story || []).map((p) => el("p", { text: p })));
+    $(".js-facts").replaceChildren(...(tx.facts || []).map((f) => el("div", null, [el("dt", { text: f.label }), el("dd", { text: f.value })])));
 
-    // Image slots
-    $$(".js-img").forEach((img) => {
-      const slot = SHOP.images[img.dataset.img];
-      if (img.getAttribute("src") !== slot.src) img.src = slot.src;
-      img.alt = slot[lang];
-    });
-
-    // Services
-    const other = lang === "ar" ? "en" : "ar";
-    $(".js-services").replaceChildren(...SHOP.services.map((s, i) => el("li", { class: "service reveal", style: "--d:" + (i % 3) * 80 + "ms" }, [
-      el("div", { class: "service-media" }, [
-        el("img", { src: s.image, alt: s[lang].alt, width: 480, height: 600, loading: "lazy", decoding: "async" }),
+    // services
+    $(".js-services").replaceChildren(...SHOP.services.map((s, i) => el("li", { class: "service reveal" }, [
+      el("span", { class: "service-num", "aria-hidden": "true", text: String(i + 1).padStart(2, "0") }),
+      el("h3", { class: "service-name", text: s[lang].name }),
+      el("p", { class: "service-desc", text: s[lang].desc }),
+      el("a", { class: "service-link", href: waUrl(s[lang].ask), target: "_blank", rel: "noopener" }, [
+        el("span", { text: tx.quoteCta }),
+        el("span", { class: "visually-hidden", text: " – " + s[lang].name + " " + tx.newTab }),
       ]),
-      el("div", { class: "service-body" }, [
-        el("span", { class: "service-num", "aria-hidden": "true", text: String(i + 1).padStart(2, "0") }),
-        el("h3", { class: "service-name", text: s[lang].name }),
-        el("p", { class: "service-alt", lang: other, dir: other === "ar" ? "rtl" : "ltr", text: s[other].name }),
-        el("p", { class: "service-desc", text: s[lang].desc }),
-        el("a", { class: "service-link", href: waUrl(s[lang].ask), target: "_blank", rel: "noopener" }, [
-          el("span", { text: tx.quoteCta }),
-          el("span", { class: "visually-hidden", text: " – " + s[lang].name + " " + tx.newTab }),
-          useIcon("i-arrow", 18),
+    ])));
+
+    // reviews: real Google quotes (kept in English), or a plain summary of what reviewers mention
+    const list = $(".js-reviews-list");
+    if (SHOP.reviews.length) {
+      $(".js-reviews-sub").textContent = "";
+      list.replaceChildren(...SHOP.reviews.map((r) => el("li", { class: "review reveal" }, [
+        el("figure", null, [
+          el("blockquote", { lang: "en", dir: "ltr" }, [el("p", { text: "“" + r + "”" })]),
+          el("figcaption", { text: tx.reviewLabel }),
         ]),
-      ]),
-    ])));
-
-    // Steps
-    $(".js-steps").replaceChildren(...tx.steps.map((s, i) => el("li", { class: "step reveal", style: "--d:" + i * 90 + "ms" }, [
-      el("div", { class: "step-mark" }, [el("span", { class: "step-num", text: String(i + 1) }), stepIcon(SHOP.stepIcons[i])]),
-      el("h3", { text: s.title }),
-      el("p", { text: s.text }),
-    ])));
-
-    // Reviews (kept in English — real quotes)
-    $(".js-reviews-list").replaceChildren(...SHOP.reviews.map((r, i) => el("li", { class: "review reveal", style: "--d:" + i * 90 + "ms" }, [
-      el("figure", null, [
-        quoteMark(),
-        el("blockquote", { lang: "en", dir: "ltr" }, [el("p", { text: r })]),
-        el("figcaption", { text: tx.reviewLabel }),
-      ]),
-    ])));
+      ])));
+    } else {
+      $(".js-reviews-sub").textContent = tx.mentionsNote;
+      list.replaceChildren(...tx.mentions.map((m) => el("li", { class: "review reveal" }, [el("p", { class: "mention", text: m })])));
+    }
 
     $$(".js-address").forEach((n) => n.replaceChildren(...tx.addressLines.map((l) => el("span", { text: l }))));
     renderHours();
@@ -609,21 +493,8 @@ const SHOP = {
 
     $(".js-year").textContent = new Date().getFullYear();
     $$("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
-
     renderStatus();
     observeReveals();
-  }
-
-  function stepIcon(id) {
-    const s = el("span", { class: "step-icon", "aria-hidden": "true" });
-    s.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22"><use href="#' + id + '"/></svg>';
-    return s;
-  }
-
-  function quoteMark() {
-    const s = el("span", { class: "quote-mark", "aria-hidden": "true" });
-    s.innerHTML = '<svg viewBox="0 0 48 36" width="36" height="27"><path fill="currentColor" d="M0 36V22.4C0 9.6 6.2 2.2 18.6 0l2 4.6C13.8 6.6 10.6 10.4 10.2 16H19v20Zm27 0V22.4C27 9.6 33.2 2.2 45.6 0l2 4.6C40.8 6.6 37.6 10.4 37.2 16H46v20Z"/></svg>';
-    return s;
   }
 
   function applyLang(next, persist) {
@@ -634,29 +505,22 @@ const SHOP = {
     if (persist) { try { localStorage.setItem(LANG_KEY, next); } catch (e) { /* ignore */ } }
   }
 
-  /* ---------- Structured data (built from SHOP) ---------- */
+  /* ---------- structured data (built from SHOP) ---------- */
   function addJsonLd() {
     const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const hhmm = (x) => { const m = toMin(x) % 1440; return String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0"); };
     const data = {
       "@context": "https://schema.org",
       "@type": SHOP.schemaType,
       name: SHOP.name,
       url: SHOP.siteUrl,
       image: SHOP.siteUrl + "images/og-image.jpg",
-      logo: SHOP.siteUrl + "images/logo.svg",
       telephone: SHOP.phoneIntl,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: SHOP.address.street,
-        addressLocality: SHOP.address.city,
-        addressCountry: SHOP.address.country,
-      },
+      address: { "@type": "PostalAddress", streetAddress: SHOP.address.street, addressLocality: SHOP.address.city, addressCountry: SHOP.address.country },
       hasMap: SHOP.directionsUrl,
       openingHoursSpecification: SHOP.hoursGroups.flatMap((g) => rangesOf(g.days[0]).map((r) => ({
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: g.days.map((d) => dayNames[d]),
-        opens: r[0],
-        closes: r[1] === "24:00" ? "23:59" : r[1],
+        "@type": "OpeningHoursSpecification", dayOfWeek: g.days.map((d) => dayNames[d]),
+        opens: hhmm(r[0]), closes: r[1] === "24:00" ? "23:59" : hhmm(r[1]),
       }))),
       aggregateRating: { "@type": "AggregateRating", ratingValue: SHOP.rating.value, bestRating: "5", reviewCount: String(SHOP.rating.count) },
       makesOffer: SHOP.services.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.en.name } })),
@@ -664,31 +528,26 @@ const SHOP = {
     document.head.append(el("script", { type: "application/ld+json", text: JSON.stringify(data) }));
   }
 
-  /* ---------- Motion: reveal on scroll ---------- */
+  /* ---------- fade-in on scroll ---------- */
   let io = null;
   function observeReveals() {
-    if (reduceMotion || !("IntersectionObserver" in window)) {
-      $$(".reveal").forEach((n) => n.classList.add("is-in"));
-      return;
-    }
-    if (!io) {
-      io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } });
-      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
-    }
+    if (reduceMotion || !("IntersectionObserver" in window)) { $$(".reveal").forEach((n) => n.classList.add("is-in")); return; }
+    if (!io) io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -6% 0px", threshold: 0.06 });
     $$(".reveal:not(.is-in)").forEach((n) => io.observe(n));
   }
 
-  /* ---------- Sticky header compacts on scroll ---------- */
-  const header = $(".site-header");
+  /* ---------- floating WhatsApp button appears after the hero ---------- */
+  const fab = $(".fab");
+  const hero = $(".hero");
   let ticking = false;
   function onScroll() {
     if (ticking) return;
     ticking = true;
-    requestAnimationFrame(() => { header.classList.toggle("is-compact", window.scrollY > 24); ticking = false; });
+    requestAnimationFrame(() => { fab.classList.toggle("is-on", window.scrollY > hero.offsetHeight * 0.7); ticking = false; });
   }
 
-  /* ---------- Init ---------- */
   if (!reduceMotion) root.classList.add("motion");
   applyLang(lang, false);
   addJsonLd();
